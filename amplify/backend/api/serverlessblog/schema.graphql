@@ -1,0 +1,24 @@
+# type Post @model {
+#   id: ID!
+#   title: String!
+#   content: String!
+# }
+type Post
+  @model
+  @key(
+    name: "postsByUsername"
+    fields: ["username"]
+    queryField: "postsByUsername"
+  )
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "username" } # owner of post can do all CRUD func
+      { allow: public, operations: [read] } # not owner can only view another person's post
+    ]
+  ) {
+  id: ID!
+  title: String!
+  content: String!
+  username: String
+  coverImage: String
+}
