@@ -3,4 +3,21 @@ backend:
   phases:
     build:
       commands:
+        - '# Execute Amplify CLI with the helper script'
         - amplifyPush --simple
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+        - eslint --fix
+    build:
+      commands:
+        - yarn run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
