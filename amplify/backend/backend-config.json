@@ -37,5 +37,12 @@
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd",
+      "lastPushTimeStamp": "2021-08-01T07:53:45.441Z"
+    }
   }
 }
