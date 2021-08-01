@@ -10,7 +10,6 @@ frontend:
     preBuild:
       commands:
         - yarn install
-        - eslint --fix
     build:
       commands:
         - yarn run build
